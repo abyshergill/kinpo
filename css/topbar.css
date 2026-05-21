@@ -1,0 +1,70 @@
+/* ==========================================
+   VARIABLES & GLOBAL RESETS
+   ========================================== */
+:root {
+    --bg-base: #f8fafc;
+    --bg-surface: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --primary: #6366f1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* ==========================================
+   HEADER & NAVIGATION STYLES
+   ========================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav a:hover, nav a.active {
+    color: var(--text-main);
+}
+
+/* Responsive Top Bar Adjustments */
+@media (max-width: 768px) {
+    header { padding: 0 5%; }
+    nav { gap: 15px; }
+}

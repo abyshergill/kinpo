@@ -1,0 +1,294 @@
+
+:root {
+    --bg-primary: #f0f4f8;
+    --container-bg: #ffffff;
+    --text-color: #2c3e50;
+    --accent-blue: #3498db;
+    --accent-green: #2ecc71;
+    --accent-purple: #9b59b6;
+    --parent-panel: #ffeaa7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 20px 20px 20px;
+}
+
+.game-window {
+    background: var(--container-bg);
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    width: 100%;
+    max-width: 780px;
+    padding: 30px;
+    text-align: center;
+    border: 6px solid #dcdde1;
+    position: relative;
+}
+
+/* Parent Settings Dashboard Panel */
+.parent-config {
+    background-color: var(--parent-panel);
+    border: 3px dashed #d35400;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.parent-title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #d35400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.parent-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.parent-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.parent-label {
+    font-weight: bold;
+    color: #d35400;
+    font-size: 0.95rem;
+}
+
+.parent-input {
+    height: 38px;
+    font-size: 1rem;
+    padding: 5px 12px;
+    border: 2px solid #d35400;
+    border-radius: 8px;
+    outline: none;
+    width: 160px;
+    color: var(--text-color);
+}
+
+/* Color Selection Matrix Checklist */
+.color-checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    background: rgba(255,255,255,0.6);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+@media (max-width: 500px) {
+    .color-checklist-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Game Mode Toggle Switches */
+.mode-selector {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.btn-mode {
+    border: none;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.2s ease;
+}
+.btn-mode-type { background-color: var(--accent-blue); box-shadow: 0 3px #2980b9; }
+.btn-mode-pick { background-color: var(--accent-purple); box-shadow: 0 3px #8e44ad; }
+
+.btn-mode.active {
+    transform: translateY(2px);
+    box-shadow: none;
+    filter: brightness(0.85);
+    border: 2px solid rgba(0,0,0,0.15);
+}
+
+/* Game Scoreboards Header */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #f1f2f6;
+}
+
+.badge {
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background-color: #f1f2f6;
+}
+.score-badge { background-color: #fdcb6e; color: #2c3e50; }
+.child-greeting { font-size: 1.5rem; font-weight: bold; color: var(--accent-blue); }
+
+/* Setup Trigger Button */
+.btn-setup-trigger {
+    background: none;
+    border: 2px solid #dcdde1;
+    color: var(--text-color);
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: none; /* Only reveals when settings are locked */
+    transition: all 0.2s;
+}
+.btn-setup-trigger:hover {
+    background-color: #f1f2f6;
+}
+
+/* General Question Framing */
+.quiz-instruction {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #7f8c8d;
+}
+
+/* UI SECTION CONTAINER HOOKS */
+.quiz-container { display: none; animation: popIn 0.3s ease-out forwards; }
+.quiz-container.active { display: block; }
+
+@keyframes popIn {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* MODE A STYLING: See Color, Type Name */
+.flash-color-block {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    border-radius: 20px;
+    margin: 0 auto 20px auto;
+    border: 5px solid white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.typing-form-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.input-text-box {
+    width: 200px;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 3px solid var(--accent-blue);
+    border-radius: 12px;
+    outline: none;
+    text-transform: lowercase;
+    color: var(--text-color);
+}
+
+/* MODE B STYLING: See Name, Pick Swatch Options */
+.big-prompt-text {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-color);
+}
+
+.choice-palette-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.color-choice-swatch {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: 4px solid white;
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.color-choice-swatch:hover { transform: scale(1.08); box-shadow: 0 8px 14px rgba(0,0,0,0.15); }
+.color-choice-swatch:active { transform: scale(0.95); }
+
+/* Unified Action Submission Buttons */
+.btn-general {
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px 28px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.btn-submit { background-color: var(--accent-blue); box-shadow: 0 4px #2980b9; }
+.btn-submit:active { transform: translateY(3px); box-shadow: none; }
+
+/* Celebrate/Result Overlay Screens */
+.modal-screen {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.modal-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.modal-card h2 { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 10px; }
+.modal-card p { font-size: 1.2rem; margin-bottom: 20px; }

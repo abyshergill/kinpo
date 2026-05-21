@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Math Tables! 🌟</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./../../css/dropdown.css">
+    <link rel="stylesheet" href="./../../css/topbar.css">
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="main-container">
+    <h1>Magical Math Tables! 🌟</h1>
+
+    <!-- Selector Dropdown Menu -->
+    <div class="parent-panel">
+        <label for="table-select">Pick a Number Table: </label>
+        <select id="table-select" onchange="updateView()">
+            <!-- Options 1 to 20 are added by JS automatically below -->
+        </select>
+    </div>
+
+    <!-- Mode Selector Switches -->
+    <div class="mode-toggle">
+        <button id="btn-learn" class="mode-btn active" onclick="switchMode('learn')">📖 Vertical Study Mode</button>
+        <button id="btn-quiz" class="mode-btn" onclick="switchMode('quiz')">🎮 Practice Quiz</button>
+    </div>
+
+    <!-- Mode A: Clean Vertical View Stack -->
+    <div id="study-view" class="vertical-table-container">
+        <!-- Vertical math lines generated dynamically here -->
+    </div>
+
+    <!-- Mode B: Challenge Quiz Box view -->
+    <div id="quiz-view" class="quiz-box">
+        <div class="quiz-question" id="quiz-question">5 × 4 = ?</div>
+        <input type="number" id="quiz-answer" class="quiz-input" placeholder="?" onkeyup="handleKeyPress(event)">
+        <br>
+        <button class="action-btn" onclick="checkQuizAnswer()">Check My Answer! ⭐</button>
+        <div id="feedback" class="feedback"></div>
+        <div class="score-board">Stars Collected: <span id="score">0</span> ⭐</div>
+    </div>
+</div>
+
+
+<script src="./../../common/navbar.js"></script>
+<script src="./js/script.js"></script>
+</body>
+</html>

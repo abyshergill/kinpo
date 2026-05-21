@@ -1,0 +1,141 @@
+
+    :root {
+        --bg-color: #f6f0fa;
+        --card-bg: #ffffff;
+        --text-color: #2b2d42;
+        --primary: #4cc9f0;
+        --secondary: #ff5a5f;
+    }
+
+    * {
+        box-sizing: border-box;
+        font-family: 'Comic Sans MS', 'Chalkboard SE', 'Ubuntu', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding: 80px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .main-container {
+        background: var(--card-bg);
+        border-radius: 30px;
+        box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+        width: 100%;
+        max-width: 900px;
+        padding: 30px;
+        border: 5px solid #d8b4fe;
+        text-align: center;
+    }
+
+    h1 {
+        color: #7209b7;
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px #ffe66d;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        color: #6c757d;
+        margin-bottom: 30px;
+    }
+
+    /* Large Display Showcase Box */
+    .showcase-box {
+        background: #e8f0fe;
+        border: 4px dashed #4cc9f0;
+        border-radius: 24px;
+        padding: 25px;
+        margin-bottom: 35px;
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .showcase-number {
+        font-size: 5rem;
+        font-weight: bold;
+        color: #7209b7;
+        line-height: 1;
+    }
+
+    .showcase-word {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #3d405b;
+    }
+
+    .showcase-visuals {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+        word-wrap: break-word;
+        max-width: 100%;
+        margin-top: 5px;
+        line-height: 2.5rem;
+    }
+
+    /* 1-20 Interactive Grid */
+    .number-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+        gap: 15px;
+        margin-bottom: 10px;
+    }
+
+    .number-block {
+        background: white;
+        border: 3px solid #dee2e6;
+        border-radius: 18px;
+        font-size: 2.5rem;
+        font-weight: bold;
+        padding: 12px 0;
+        cursor: pointer;
+        box-shadow: 0 5px 0 #e9ecef;
+        transition: all 0.15s ease;
+        user-select: none;
+    }
+
+    .number-block:hover {
+        transform: scale(1.08);
+        background-color: #fff3cd;
+    }
+
+    .number-block:active {
+        transform: translateY(4px);
+        box-shadow: 0 1px 0 #e9ecef;
+    }
+
+    /* Kid-friendly Color Themes for Blocks */
+    .color-0 { border-color: #ff6b6b; color: #ff6b6b; box-shadow: 0 5px 0 #ff6b6b33; }
+    .color-1 { border-color: #4ecdc4; color: #4ecdc4; box-shadow: 0 5px 0 #4ecdc433; }
+    .color-2 { border-color: #ffbe0b; color: #ffbe0b; box-shadow: 0 5px 0 #ffbe0b33; }
+    .color-3 { border-color: #a29bfe; color: #a29bfe; box-shadow: 0 5px 0 #a29bfe33; }
+    .color-4 { border-color: #fd79a8; color: #fd79a8; box-shadow: 0 5px 0 #fd79a833; }
+
+    .btn-speak {
+        background-color: #7209b7;
+        color: white;
+        border: none;
+        padding: 8px 18px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border-radius: 12px;
+        cursor: pointer;
+        margin-top: 5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .btn-speak:hover { background-color: #591a89; }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical A to Z Alphabet Adventure! 🎈</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./../../css/dropdown.css">
+    <link rel="stylesheet" href="./../../css/topbar.css">
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="main-container">
+    <h1>Alphabet Kingdom! 🌟</h1>
+    <p class="subtitle">Click any magic letter block below to hear its sound and discover a word!</p>
+
+    <!-- Big Center Showcase Area -->
+    <div class="showcase-box" id="showcase">
+        <div class="showcase-letter" id="big-letter">A a</div>
+        <div class="showcase-word" id="big-word">🍎 Apple</div>
+        <button class="btn-speak" onclick="speakCurrent()">🔊 Hear Sound</button>
+    </div>
+
+    <!-- Alphabet Grid Letters Layout -->
+    <div class="alphabet-grid" id="grid-container">
+        <!-- JS generates letter buttons dynamically from A to Z here -->
+    </div>
+</div>
+    <script src="./../../common/navbar.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>

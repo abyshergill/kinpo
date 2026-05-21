@@ -1,0 +1,311 @@
+
+        :root {
+            --bg-primary: #e8f5e9;
+            --container-bg: #ffffff;
+            --text-color: #2e7d32;
+            --accent-orange: #e67e22;
+            --accent-green: #2ecc71;
+            --accent-purple: #8e44ad;
+            --parent-panel: #fcf3cf;
+            --patch-bg: #f9fbe7;
+            --dirt-brown: #784212;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 80px 20px 20px 20px;
+        }
+
+        .game-window {
+            background: var(--container-bg);
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.1);
+            width: 100%;
+            max-width: 780px;
+            padding: 30px;
+            text-align: center;
+            border: 6px solid #a5d6a7;
+            position: relative;
+        }
+
+        /* Parent Settings Dashboard Panel */
+        .parent-config {
+            background-color: var(--parent-panel);
+            border: 3px dashed var(--dirt-brown);
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .parent-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--dirt-brown);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .parent-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .parent-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .parent-label {
+            font-weight: bold;
+            color: var(--dirt-brown);
+            font-size: 0.95rem;
+        }
+
+        .parent-input {
+            height: 38px;
+            font-size: 1rem;
+            padding: 5px 12px;
+            border: 2px solid var(--dirt-brown);
+            border-radius: 8px;
+            outline: none;
+            width: 160px;
+            color: var(--dirt-brown);
+        }
+
+        /* Veggie Selection Matrix Checklist */
+        .veggie-checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            background: rgba(255,255,255,0.7);
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 600px) {
+            .veggie-checklist-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #4d4637;
+        }
+
+        /* Game Mode Toggle Switches */
+        .mode-selector {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .btn-mode {
+            border: none;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            transition: all 0.2s ease;
+        }
+        .btn-mode-type { background-color: var(--accent-orange); box-shadow: 0 3px #d35400; }
+        .btn-mode-pick { background-color: var(--accent-purple); box-shadow: 0 3px #732d91; }
+        
+        .btn-mode.active {
+            transform: translateY(2px);
+            box-shadow: none;
+            filter: brightness(0.9);
+            border: 2px solid rgba(0,0,0,0.15);
+        }
+
+        /* Game Scoreboards Header */
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #c8e6c9;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            background-color: #e8f5e9;
+        }
+        .score-badge { background-color: #fdcb6e; color: #2c3e50; }
+        .child-greeting { font-size: 1.5rem; font-weight: bold; color: var(--accent-orange); }
+
+        /* Setup Trigger Button */
+        .btn-setup-trigger {
+            background: none;
+            border: 2px solid #a5d6a7;
+            color: var(--text-color);
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: none; /* Only reveals when settings are locked */
+            transition: all 0.2s;
+        }
+        .btn-setup-trigger:hover {
+            background-color: #c8e6c9;
+        }
+
+        /* General Question Framing */
+        .quiz-instruction {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #558b2f;
+        }
+
+        /* UI Section Dynamic Containers */
+        .quiz-container { display: none; animation: popIn 0.3s ease-out forwards; }
+        .quiz-container.active { display: block; }
+
+        @keyframes popIn {
+            0% { transform: scale(0.95); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* MODE A STYLING: See Veggie, Type Name */
+        .garden-patch-block {
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            border-radius: 20px;
+            margin: 0 auto 20px auto;
+            border: 5px solid white;
+            background-color: var(--patch-bg);
+            box-shadow: inset 0 4px 10px rgba(0,0,0,0.05), 0 8px 16px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6.5rem;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+
+        .typing-form-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .input-text-box {
+            width: 220px;
+            height: 50px;
+            font-size: 1.4rem;
+            text-align: center;
+            border: 3px solid var(--accent-orange);
+            border-radius: 12px;
+            outline: none;
+            text-transform: lowercase;
+            color: var(--dirt-brown);
+        }
+        .input-text-box:focus { box-shadow: 0 0 10px rgba(230, 126, 34, 0.3); }
+
+        /* MODE B STYLING: See Name, Pick Veggie Swatch */
+        .big-prompt-text {
+            font-size: 4.2rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-color);
+            text-shadow: 1px 2px 0px rgba(0,0,0,0.05);
+        }
+
+        .choice-palette-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .veggie-choice-swatch {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 4px solid white;
+            background-color: #fff9e6;
+            cursor: pointer;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s;
+            user-select: none;
+        }
+        .veggie-choice-swatch:hover { transform: scale(1.08); background-color: #fffde6; box-shadow: 0 8px 14px rgba(0,0,0,0.12); }
+        .veggie-choice-swatch:active { transform: scale(0.95); }
+
+        /* Unified Action Submission Buttons */
+        .btn-general {
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        .btn-submit { background-color: var(--accent-green); box-shadow: 0 4px #27ae60; }
+        .btn-submit:active { transform: translateY(3px); box-shadow: none; }
+
+        /* Results Pop-up Overlay Screens */
+        .modal-screen {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .modal-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .modal-card h2 { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 10px; }
+        .modal-card p { font-size: 1.2rem; margin-bottom: 20px; }

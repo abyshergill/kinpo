@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical 1 to 20 Number Adventure! 🔢</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./../../css/dropdown.css">
+    <link rel="stylesheet" href="./../../css/topbar.css">
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="main-container">
+    <h1>Number Kingdom! 🌟</h1>
+    <p class="subtitle">Click any number block below to count the items and hear how to say it!</p>
+
+    <!-- Big Center Showcase Area -->
+    <div class="showcase-box" id="showcase">
+        <div class="showcase-number" id="big-number">1</div>
+        <div class="showcase-word" id="big-word">One</div>
+        <div class="showcase-visuals" id="big-visuals">🎈</div>
+        <button class="btn-speak" onclick="speakCurrent()">🔊 Hear Number</button>
+    </div>
+
+    <!-- 1 to 20 Grid Layout -->
+    <div class="number-grid" id="grid-container">
+        <!-- Generated via JS dynamically -->
+    </div>
+</div>
+
+
+<script src="./../../common/navbar.js"></script>
+<script src="./js/script.js"></script>
+</body>
+</html>

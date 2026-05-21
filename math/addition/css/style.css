@@ -1,0 +1,294 @@
+
+:root {
+    --bg-primary: #e8f4fd;
+    --container-bg: #ffffff;
+    --text-color: #2c3e50;
+    --accent-green: #2ecc71;
+    --accent-red: #ff7675;
+    --accent-blue: #3498db;
+    --parent-panel: #ffeaa7;
+    --box-a-color: #fffae6;
+    --box-b-color: #e6f7ff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 20px 20px 20px;
+}
+
+.game-window {
+    background: var(--container-bg);
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 855px;
+    padding: 30px;
+    text-align: center;
+    border: 6px solid #dff9fb;
+}
+
+/* Parent Panel Area */
+.parent-config {
+    background-color: var(--parent-panel);
+    border: 3px dashed #d35400;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.parent-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #d35400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.parent-settings-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.emoji-selector {
+    display: flex;
+    gap: 8px;
+}
+
+.emoji-opt {
+    font-size: 1.6rem;
+    background: white;
+    border: 3px solid #ccc;
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.emoji-opt.selected {
+    border-color: #e67e22;
+    background-color: #fff2cc;
+    transform: scale(1.1);
+}
+
+.parent-input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.parent-input {
+    height: 38px;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: 2px solid #d35400;
+    border-radius: 8px;
+    outline: none;
+}
+
+.parent-input.name-input { width: 140px; }
+.parent-input.num-input { width: 65px; text-align: center; }
+
+.btn-parent-load {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px #b35b10;
+}
+.btn-parent-load:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px #b35b10;
+}
+
+/* Scoreboards */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.badge {
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background-color: #f1f2f6;
+}
+.q-badge { background-color: #a29bfe; color: white; }
+.score-badge { background-color: #fdcb6e; color: #2c3e50; }
+
+.child-greeting {
+    font-size: 1.6rem;
+    color: var(--accent-blue);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Vertical Math Worksheet Engine Layout */
+.worksheet-grid {
+    display: grid;
+    grid-template-columns: 80px 100px auto;
+    align-items: center;
+    row-gap: 20px;
+    max-width: 750px;
+    margin: 0 auto 25px auto;
+}
+
+.math-sign {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+.big-number {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+    background: #f1f2f6;
+    border-radius: 12px;
+    padding: 5px;
+    margin-right: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.sandbox-box {
+    border-radius: 16px;
+    padding: 15px;
+    border: 3px solid #b2bec3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+}
+.sandbox-box.type-a { background-color: var(--box-a-color); border-color: #f39c12; }
+.sandbox-box.type-b { background-color: var(--box-b-color); border-color: #2980b9; }
+
+.sandbox-canvas {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    min-height: 80px;
+    flex-grow: 1;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 6px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.sandbox-emoji {
+    font-size: 2.2rem;
+    animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    user-select: none;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.sandbox-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-action {
+    border: none;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    white-space: nowrap;
+}
+.btn-add { background-color: var(--accent-green); box-shadow: 0 4px #27ae60; }
+.btn-remove { background-color: var(--accent-red); box-shadow: 0 4px #c0392b; }
+.btn-action:active { transform: translateY(3px); box-shadow: 0 1px transparent; }
+
+/* The Worksheet Underline Separator */
+.worksheet-line {
+    grid-column: 1 / span 3;
+    height: 6px;
+    background-color: var(--text-color);
+    border-radius: 3px;
+    margin: 5px 0;
+}
+
+/* Bottom Row Answer Container */
+.answer-row-wrapper {
+    grid-column: 1 / span 3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 80px;
+    gap: 25px;
+}
+
+.input-box {
+    width: 100px;
+    height: 65px;
+    font-size: 2.5rem;
+    text-align: center;
+    border: 3px solid var(--accent-blue);
+    border-radius: 12px;
+    color: var(--text-color);
+    outline: none;
+}
+.btn-submit {
+    background-color: var(--accent-blue);
+    box-shadow: 0 5px #2980b9;
+    font-size: 1.3rem;
+    padding: 14px 30px;
+    border-radius: 50px;
+}
+
+/* Popup Notification Screen */
+.modal-screen {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.modal-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+.modal-card h2 { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 10px; }
+.modal-card p { font-size: 1.2rem; margin-bottom: 20px; }

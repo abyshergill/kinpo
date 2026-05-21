@@ -1,0 +1,225 @@
+
+        :root {
+            --primary: #4cc9f0;
+            --secondary: #4895ef;
+            --success: #4cc9f0;
+            --accent: #f72585;
+            --background: #f0f3f8;
+            --card-bg: #ffffff;
+            --text: #2b2d42;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Ubuntu', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            padding: 80px 20px 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .game-container {
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 650px;
+            padding: 30px;
+            border: 4px solid #b5e2fa;
+            text-align: center;
+        }
+
+        h1 {
+            color: #7209b7;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #f7258522;
+        }
+
+        .parent-panel {
+            background: #edf2f4;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 2px dashed #9a8c98;
+            text-align: left;
+        }
+
+        .parent-panel h3 {
+            font-size: 1.2rem;
+            color: #4a4e69;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .setting-group {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .setting-group label {
+            font-weight: bold;
+            color: #2b2d42;
+        }
+
+        select, button, .parent-input {
+            padding: 8px 14px;
+            font-size: 1rem;
+            border-radius: 12px;
+            border: 2px solid #ccc;
+            outline: none;
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        select {
+            background-color: white;
+            font-weight: bold;
+            color: #3d5a80;
+            border-color: #3d5a80;
+            flex-grow: 1;
+            max-width: 200px;
+        }
+
+        .parent-input {
+            width: 120px;
+            border: 2px solid #7209b7;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .parent-btn {
+            background-color: #7209b7;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .parent-btn:hover {
+            background-color: #591a89;
+        }
+
+        .mode-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .mode-btn {
+            background-color: #e0e1dd;
+            color: #4a5568;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+        }
+
+        .mode-btn.active {
+            background-color: #f72585;
+            color: white;
+            box-shadow: 0 4px 10px rgba(247, 37, 133, 0.4);
+        }
+
+        .question-box {
+            background: #f4f1de;
+            border: 3px solid #f2cc8f;
+            border-radius: 20px;
+            padding: 30px 15px;
+            margin-bottom: 25px;
+            min-height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .custom-badge {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: #7209b7;
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .question-text {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #3d405b;
+        }
+
+        .input-area {
+            margin-bottom: 20px;
+        }
+
+        .input-area input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.5rem;
+            border-radius: 16px;
+            border: 3px solid #3d5a80;
+            text-align: center;
+            outline: none;
+        }
+
+        .input-area input:focus {
+            border-color: #f72585;
+        }
+
+        .action-btn {
+            background-color: #4cc9f0;
+            color: white;
+            border: none;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 12px 30px;
+            box-shadow: 0 5px 0 #4361ee;
+            width: 100%;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .action-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #4361ee;
+        }
+
+        .feedback {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 15px;
+            min-height: 40px;
+            animation: pop 0.3s ease-out;
+        }
+
+        .correct { color: #2a9d8f; }
+        .wrong { color: #e63946; }
+
+        .score-board {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #6d597a;
+            margin-top: 15px;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.8); }
+            100% { transform: scale(1); }
+        }

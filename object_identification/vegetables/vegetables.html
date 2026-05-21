@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetable Quiz: Garden, Type & Pick!</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./../../css/dropdown.css">
+    <link rel="stylesheet" href="./../../css/topbar.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="game-window">
+        <div class="parent-config" id="parent-dashboard">
+            <div class="parent-title">⚙️ Parent Dashboard Controls</div>
+            <div class="parent-row">
+                
+                <div class="parent-column">
+                    <label class="parent-label">Child Name:</label>
+                    <input type="text" class="parent-input" id="parent-child-name" placeholder="Superstar" maxlength="12">
+                    
+                    <label class="parent-label" style="margin-top: 8px;">Game Routine Mode:</label>
+                    <div class="mode-selector">
+                        <button class="btn-mode btn-mode-type active" data-mode="type">See Veggie ➔ Type</button>
+                        <button class="btn-mode btn-mode-pick" data-mode="pick">See Word ➔ Pick</button>
+                    </div>
+                </div>
+
+                <div class="parent-column" style="flex-grow: 1;">
+                    <label class="parent-label">Select Active Quiz Vegetables:</label>
+                    <div class="veggie-checklist-grid" id="parent-checklist-box">
+                        </div>
+                </div>
+            </div>
+
+            <button class="btn-general" id="btn-lock-settings" style="margin-top: 15px; width: 100%; background-color: var(--dirt-brown); box-shadow: 0 4px #4d4637;">
+                Lock Settings & Start Playing 🔒
+            </button>
+        </div>
+
+        <div class="game-header">
+            <button class="btn-setup-trigger" id="btn-unlock-settings">⚙️ Setup</button>
+            <div class="child-greeting" id="greeting-banner">Let's play, Superstar!</div>
+            <div class="badge score-badge" id="score-tracker">Stars: ⭐ 0</div>
+        </div>
+
+        <div class="quiz-container active" id="container-mode-type">
+            <div class="quiz-instruction">What vegetable is growing here? Type it below!</div>
+            <div class="garden-patch-block" id="type-veggie-flash">🥦</div>
+            <div class="typing-form-row">
+                <input type="text" class="input-text-box" id="player-type-input" placeholder="vegetable name..." autocomplete="off" spellcheck="false">
+                <button class="btn-general btn-submit" id="btn-check-type">Check</button>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="container-mode-pick">
+            <div class="quiz-instruction">Can you find this vegetable button?</div>
+            <div class="big-prompt-text" id="pick-text-prompt">BROCCOLI</div>
+            <div class="choice-palette-grid" id="pick-palette-options">
+                </div>
+        </div>
+
+    </div>
+
+    <div class="modal-screen" id="celebrate-modal">
+        <div class="modal-card">
+            <h2 id="modal-title">Correct! 🎉</h2>
+            <p id="modal-desc">You are a garden expert!</p>
+            <button class="btn-general btn-submit" id="btn-modal-next" style="box-shadow:none; width: 100%;">Next Question ➔</button>
+        </div>
+    </div>
+    <script src="./../../common/navbar.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>

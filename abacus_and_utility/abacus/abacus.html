@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Abacus Math Lab</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./../css/about.css">
+    <link rel="stylesheet" href="./../../css/dropdown.css">
+    <link rel="stylesheet" href="./../../css/topbar.css">
+    
+</head>
+<body>
+    <header>
+        <a href="./../../portfolio.html" class="logo">Kinpo Kids Workspace</a>
+        <nav id="navbar">
+            <!-- Math Dropdown -->
+            <div class="nav-item">
+                <a href="#math">Mathematics ▾</a>
+                <div class="dropdown-content">
+                    <a href="./../../math/addition/addition.html" target="_blank" rel="noopener noreferrer">➕ Addition</a>
+                    <a href="./../../math/subtraction/subtraction.html" target="_blank" rel="noopener noreferrer">➖ Subtraction</a>
+                    <a href="./../../math/multiplication/multiplication.html" target="_blank" rel="noopener noreferrer">✖️ Multiplication</a>
+                    <a href="./../../math/division/division.html" target="_blank" rel="noopener noreferrer">➗ Division</a>
+                </div>
+            </div>
+
+            <!-- Utility Dropdown -->
+            <div class="nav-item">
+                <a href="#utility">Utility ▾</a>
+                <div class="dropdown-content">
+                    <a href="./../../abacus_and_utility/abacus/abacus.html" target="_blank" rel="noopener noreferrer">🧮 Abacus</a>
+                    <a href="http://typewriter.kinpo.ai" target="_blank" rel="noopener noreferrer">⌨️ Type Writer</a>
+                    <a href="http://periodictable.kinpo.ai" target="_blank" rel="noopener noreferrer">🧪 Periodic Table</a>
+                    <a href="http://periodictable.kinpo.ai" target="_blank" rel="noopener noreferrer">🔐 Enigma Machine</a>
+                </div>
+            </div>
+
+            <!-- Object Identification Dropdown -->
+            <div class="nav-item">
+                <a href="#object">Object Identification ▾</a>
+                <div class="dropdown-content">
+                    <a href="./../../object_identification/fruits/fruits.html" target="_blank" rel="noopener noreferrer">🍎 Fruits</a>
+                    <a href="./../../object_identification/vegetables/vegetables.html" target="_blank" rel="noopener noreferrer">🥦 Vegetables</a>
+                    <a href="./../../object_identification/animals/animal.html" target="_blank" rel="noopener noreferrer">🦁 Animals</a>
+                    <a href="./../../object_identification/colors/colors.html" target="_blank" rel="noopener noreferrer">🎨 Colors</a>
+                </div>
+            </div>
+
+            <!-- Games Dropdown -->
+            <div class="nav-item">
+                <a href="#games">Games ▾</a>
+                <div class="dropdown-content">
+                    <a href="http://pacman.kinpo.ai" target="_blank" rel="noopener noreferrer">🟡 Pac-Man</a>
+                    <a href="http://dxball.kinpo.ai" target="_blank" rel="noopener noreferrer">🕹️ DX-Ball</a>
+                </div>
+            </div>
+
+            <a href="#about" class="nav-item">About</a>
+        </nav>
+    </header>
+    <div class="lab-window">
+        <div class="lab-header">
+            <div class="badge q-badge" id="q-tracker">Question: 1 / 10</div>
+            <div class="greeting-banner" id="greeting-banner">Let's solve, Superstar!</div>
+            <div class="badge score-badge" id="score-tracker">Stars: ⭐ 0</div>
+        </div>
+
+        <div class="grid-core">
+            
+            <div class="abacus-stage">
+                <div class="abacus-counter-display">Abacus Value: <span id="abacus-total">0</span></div>
+                <div class="abacus-frame">
+                    <div class="abacus-beam"></div>
+                    <div class="abacus-rods-layer">
+                        <div class="rod" data-weight="10000">
+                            <div class="bead top-deck" data-val="5"></div>
+                            <div class="bead bottom-deck b1" data-val="1"></div>
+                            <div class="bead bottom-deck b2" data-val="1"></div>
+                            <div class="bead bottom-deck b3" data-val="1"></div>
+                            <div class="bead bottom-deck b4" data-val="1"></div>
+                        </div>
+                        <div class="rod" data-weight="1000">
+                            <div class="bead top-deck" data-val="5"></div>
+                            <div class="bead bottom-deck b1" data-val="1"></div>
+                            <div class="bead bottom-deck b2" data-val="1"></div>
+                            <div class="bead bottom-deck b3" data-val="1"></div>
+                            <div class="bead bottom-deck b4" data-val="1"></div>
+                        </div>
+                        <div class="rod" data-weight="100">
+                            <div class="bead top-deck" data-val="5"></div>
+                            <div class="bead bottom-deck b1" data-val="1"></div>
+                            <div class="bead bottom-deck b2" data-val="1"></div>
+                            <div class="bead bottom-deck b3" data-val="1"></div>
+                            <div class="bead bottom-deck b4" data-val="1"></div>
+                        </div>
+                        <div class="rod" data-weight="10">
+                            <div class="bead top-deck" data-val="5"></div>
+                            <div class="bead bottom-deck b1" data-val="1"></div>
+                            <div class="bead bottom-deck b2" data-val="1"></div>
+                            <div class="bead bottom-deck b3" data-val="1"></div>
+                            <div class="bead bottom-deck b4" data-val="1"></div>
+                        </div>
+                        <div class="rod" data-weight="1">
+                            <div class="bead top-deck" data-val="5"></div>
+                            <div class="bead bottom-deck b1" data-val="1"></div>
+                            <div class="bead bottom-deck b2" data-val="1"></div>
+                            <div class="bead bottom-deck b3" data-val="1"></div>
+                            <div class="bead bottom-deck b4" data-val="1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-deck">
+                <div class="operation-tabs">
+                    <button class="tab-btn active" data-op="+">✚</button>
+                    <button class="tab-btn" data-op="-">━</button>
+                    <button class="tab-btn" data-op="*">✖</button>
+                    <button class="tab-btn" data-op="/">➗</button>
+                </div>
+
+                <div class="challenge-box">
+                    <div style="color: #7f8c8d; font-size: 0.9rem; text-transform: uppercase;">Solve This Equation</div>
+                    <div class="math-problem-text" id="math-problem-display">4 + 3 = ?</div>
+                    
+                    <div class="answer-form">
+                        <input type="number" class="input-box" id="player-input" placeholder="?">
+                        <button class="btn-action btn-submit" id="action-check">Verify</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="parent-drawer">
+            <div class="parent-title">⚙️ Parent Management & Text Ingestion Dashboard</div>
+            
+            <div class="parent-grid-controls">
+                <div class="parent-group">
+                    <span class="parent-label">Child Name:</span>
+                    <input type="text" class="parent-input" id="parent-child-name" placeholder="Superstar" maxlength="12">
+                </div>
+
+                <div class="parent-group">
+                    <span class="parent-label">Inject Problem:</span>
+                    <input type="number" class="parent-input" id="custom-num-a" style="width: 60px;" placeholder="A">
+                    <span id="custom-op-symbol" style="font-weight:bold;">+</span>
+                    <input type="number" class="parent-input" id="custom-num-b" style="width: 60px;" placeholder="B">
+                    <button class="btn-parent" id="btn-inject-custom">Load Equation</button>
+                </div>
+
+                <div class="parent-group">
+                    <button class="btn-parent btn-download" id="btn-download-template">📥 Download Layout format</button>
+                    <label for="file-picker" class="btn-parent" style="background:#8e44ad; box-shadow: 0 3px #6c3483;">📤 Upload .txt File</label>
+                    <input type="file" id="file-picker" accept=".txt" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-screen" id="victory-modal">
+        <div class="modal-card">
+            <h2 id="modal-title">Correct! 🎉</h2>
+            <p id="modal-desc">Incredible work using your mathematical mind!</p>
+            <button class="btn-action btn-submit" id="action-next" style="box-shadow:none; width: 100%;">Next Problem ➔</button>
+        </div>
+    </div>
+<script src="./js/script.js"></script>
+</body>
+</html>

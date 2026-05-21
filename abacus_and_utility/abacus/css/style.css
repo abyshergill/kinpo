@@ -1,0 +1,321 @@
+
+        :root {
+            --bg-base: #f0f4f8;
+            --container-bg: #ffffff;
+            --text-main: #2c3e50;
+            --abacus-wood: #8e44ad;
+            --abacus-beam: #34495e;
+            --bead-color: #f1c40f;
+            --bead-active: #e67e22;
+            --accent-blue: #3498db;
+            --accent-green: #2ecc71;
+            --parent-panel: #ffeaa7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 80px 20px 20px 20px;;
+        }
+
+        .lab-window {
+            background: var(--container-bg);
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 980px;
+            padding: 25px;
+            border: 5px solid #dcdde1;
+        }
+
+        /* Layout Framework */
+        .grid-core {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 820px) {
+            .grid-core { grid-template-columns: 1fr; }
+        }
+
+        /* Top Bar Layout */
+        .lab-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 3px dashed #f1f2f6;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .score-badge { background-color: #fdcb6e; color: #2c3e50; }
+        .greeting-banner { font-size: 1.5rem; font-weight: bold; color: var(--accent-blue); }
+
+        /* Left Column: Virtual Abacus Canvas */
+        .abacus-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fafafa;
+            border-radius: 16px;
+            padding: 20px;
+            border: 2px solid #e1b12c;
+        }
+
+        .abacus-counter-display {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            background: #fff;
+            padding: 5px 20px;
+            border-radius: 30px;
+            border: 2px solid #edf2f7;
+        }
+
+        /* Physical Soroban CSS Render Frame */
+        .abacus-frame {
+            width: 100%;
+            max-width: 460px;
+            background-color: #5e35b1;
+            border: 14px solid var(--abacus-wood);
+            border-radius: 12px;
+            padding: 0;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Center Separator Beam Line */
+        .abacus-beam {
+            height: 14px;
+            background-color: var(--abacus-beam);
+            width: 100%;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            z-index: 5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .abacus-rods-layer {
+            display: flex;
+            justify-content: space-around;
+            height: 310px;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .rod {
+            width: 6px;
+            background: linear-gradient(to right, #bdc3c7, #95a5a6, #bdc3c7);
+            height: 100%;
+            position: relative;
+        }
+
+        /* Universal Bead Styles */
+        .bead {
+            position: absolute;
+            width: 54px;
+            height: 24px;
+            background: radial-gradient(ellipse at center, #f39c12 0%, #d35400 100%);
+            border-radius: 50% / 12px;
+            left: -24px;
+            cursor: pointer;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+            border: 1px solid #e67e22;
+        }
+
+        /* Top Deck: 5 Value Beading Coordinates */
+        .bead.top-deck { top: 5px; }
+        .bead.top-deck.active { transform: translateY(40px); background: radial-gradient(ellipse at center, #34e7e4 0%, #00d2d3 100%); border-color: #00d2d3; }
+
+        /* Bottom Deck: 1 Value Beading Coordinates */
+        .bead.bottom-deck.b1 { top: 96px; }
+        .bead.bottom-deck.b2 { top: 124px; }
+        .bead.bottom-deck.b3 { top: 152px; }
+        .bead.bottom-deck.b4 { top: 180px; }
+
+        /* Active Transformations relative to stacking orders */
+        .bead.bottom-deck.b1.active { transform: translateY(-12px); }
+        .bead.bottom-deck.b2.active { transform: translateY(-24px); }
+        .bead.bottom-deck.b3.active { transform: translateY(-36px); }
+        .bead.bottom-deck.b4.active { transform: translateY(-48px); }
+
+        /* Right Column: Interaction Workspaces Dashboard */
+        .dashboard-deck {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Operation Tab Selectors */
+        .operation-tabs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            background: #f1f2f6;
+            padding: 6px;
+            border-radius: 14px;
+        }
+
+        .tab-btn {
+            border: none;
+            padding: 10px 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            background: transparent;
+            color: #7f8c8d;
+            transition: all 0.2s ease;
+        }
+        .tab-btn.active {
+            background-color: var(--container-bg);
+            color: var(--accent-blue);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Question Panel card */
+        .challenge-box {
+            background: #fdfefe;
+            border: 3px solid #dff9fb;
+            border-radius: 18px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .math-problem-text {
+            font-size: 3.2rem;
+            font-weight: bold;
+            color: var(--text-color);
+            margin: 15px 0;
+            letter-spacing: 2px;
+        }
+
+        .answer-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .input-box {
+            width: 100px;
+            height: 50px;
+            font-size: 2rem;
+            text-align: center;
+            border: 3px solid var(--accent-blue);
+            border-radius: 12px;
+            outline: none;
+        }
+
+        .btn-action {
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 12px 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        .btn-submit { background-color: var(--accent-blue); box-shadow: 0 4px #2980b9; }
+        .btn-submit:active { transform: translateY(3px); box-shadow: none; }
+
+        /* Bottom Section: Parent Dashboard Workspace Management */
+        .parent-drawer {
+            background-color: var(--parent-panel);
+            border: 3px dashed #d35400;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .parent-grid-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 12px;
+        }
+
+        .parent-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .parent-label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #d35400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .parent-input {
+            height: 38px;
+            font-size: 1rem;
+            padding: 5px 12px;
+            border: 2px solid #d35400;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .btn-parent {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 9px 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 3px #b35b10;
+        }
+        .btn-parent:active { transform: translateY(2px); box-shadow: 0 1px #b35b10; }
+        .btn-download { background-color: #27ae60; box-shadow: 0 3px #1e7e43; }
+
+        /* Notification Modals */
+        .modal-screen {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .modal-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        .modal-card h2 { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 10px; }
+        .modal-card p { font-size: 1.2rem; margin-bottom: 25px; }

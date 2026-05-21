@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Counter: Vertical Math Sandbox</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="game-window">
+        <div class="parent-config">
+            <div class="parent-title">⚙️ Parent Management Dashboard</div>
+            <div class="parent-settings-row">
+                <div class="parent-input-group">
+                    <label style="font-weight:bold; color:#d35400;">Child Name:</label>
+                    <input type="text" class="parent-input name-input" id="parent-child-name" placeholder="Superstar" maxlength="12">
+                </div>
+
+                <div class="emoji-selector" id="emoji-board">
+                    <div class="emoji-opt selected" data-emoji="🍎">🍎</div>
+                    <div class="emoji-opt" data-emoji="🦖">🦖</div>
+                    <div class="emoji-opt" data-emoji="🧸">🧸</div>
+                    <div class="emoji-opt" data-emoji="🦄">🦄</div>
+                    <div class="emoji-opt" data-emoji="🚗">🚗</div>
+                    <div class="emoji-opt" data-emoji="🍩">🍩</div>
+                </div>
+
+                <div class="parent-input-group">
+                    <label style="font-weight:bold; color:#d35400;">Equation:</label>
+                    <input type="number" class="parent-input num-input" id="parent-input-a" min="1" max="15" placeholder="A">
+                    <span style="font-weight:bold;">+</span>
+                    <input type="number" class="parent-input num-input" id="parent-input-b" min="1" max="15" placeholder="B">
+                    <button class="btn-parent-load" id="parent-load-btn">Load</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-header">
+            <div class="badge q-badge" id="q-tracker">Question: 1 / 10</div>
+            <div class="child-greeting" id="greeting-banner">Let's count, Superstar!</div>
+            <div class="badge score-badge" id="score-tracker">Stars: ⭐ 0</div>
+        </div>
+
+        <div class="worksheet-grid">
+            <div class="math-sign"></div>
+            <div class="big-number" id="num-display-a">4</div>
+            <div class="sandbox-box type-a">
+                <div class="sandbox-canvas" id="sandbox-a"></div>
+                <div class="sandbox-controls">
+                    <button class="btn-action btn-add" id="add-a">✚ Add</button>
+                    <button class="btn-action btn-remove" id="remove-a">━ Remove</button>
+                </div>
+            </div>
+
+            <div class="math-sign">+</div>
+            <div class="big-number" id="num-display-b">2</div>
+            <div class="sandbox-box type-b">
+                <div class="sandbox-canvas" id="sandbox-b"></div>
+                <div class="sandbox-controls">
+                    <button class="btn-action btn-add" id="add-b">✚ Add</button>
+                    <button class="btn-action btn-remove" id="remove-b">━ Remove</button>
+                </div>
+            </div>
+
+            <div class="worksheet-line"></div>
+
+            <div class="answer-row-wrapper">
+                <input type="number" class="input-box" id="player-input" min="0" placeholder="?">
+                <button class="btn-action btn-submit" id="action-check">Check Answer</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-screen" id="victory-modal">
+        <div class="modal-card">
+            <h2 id="modal-title">Correct! 🎉</h2>
+            <p id="modal-desc">Brilliant job counting!</p>
+            <button class="btn-action btn-submit" id="action-next" style="box-shadow:none;">Next Question ➔</button>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
