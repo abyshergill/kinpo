@@ -139,3 +139,50 @@
         gap: 8px;
     }
     .btn-speak:hover { background-color: #591a89; }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        body {
+            padding: 100px 10px 20px 10px;
+        }
+
+        .main-container {
+            padding: 20px 15px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        .showcase-number {
+            font-size: 3.5rem;
+        }
+
+        .showcase-word {
+            font-size: 1.8rem;
+        }
+
+        .showcase-visuals {
+            font-size: 1.3rem;
+        }
+
+        .number-grid {
+            grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+            gap: 10px;
+        }
+
+        .number-block {
+            font-size: 1.8rem;
+            padding: 10px 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .number-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .number-block {
+            font-size: 1.5rem;
+        }
+    }

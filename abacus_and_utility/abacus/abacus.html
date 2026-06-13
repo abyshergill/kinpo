@@ -12,7 +12,12 @@
 </head>
 <body>
     <header>
-        <a href="./../../portfolio.html" class="logo">Kinpo Kids Workspace</a>
+        <a href="./../../index.html" class="logo">Kinpo Kids Workspace</a>
+        <button class="hamburger" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <nav id="navbar">
             <!-- Math Dropdown -->
             <div class="nav-item">
@@ -59,6 +64,26 @@
             <a href="#about" class="nav-item">About</a>
         </nav>
     </header>
+    <script>
+        // Add toggle logic for the hardcoded navbar
+        const hamburger = document.getElementById('hamburger-menu');
+        const nav = document.getElementById('navbar');
+
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                });
+            });
+        }
+    </script>
     <div class="lab-window">
         <div class="lab-header">
             <div class="badge q-badge" id="q-tracker">Question: 1 / 10</div>

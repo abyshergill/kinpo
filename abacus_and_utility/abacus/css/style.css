@@ -319,3 +319,100 @@
         }
         .modal-card h2 { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 10px; }
         .modal-card p { font-size: 1.2rem; margin-bottom: 25px; }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .grid-core {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 100px 10px 20px 10px;
+            }
+
+            .lab-window {
+                padding: 15px;
+            }
+
+            .greeting-banner {
+                font-size: 1.2rem;
+            }
+
+            .badge {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+
+            .abacus-frame {
+                max-width: 380px;
+                border-width: 10px;
+            }
+
+            .bead {
+                width: 44px;
+                height: 20px;
+                left: -19px;
+            }
+
+            .rod {
+                width: 4px;
+            }
+
+            .abacus-beam {
+                height: 10px;
+                top: 60px;
+            }
+
+            .bead.top-deck.active {
+                transform: translateY(35px);
+            }
+
+            .math-problem-text {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .abacus-frame {
+                max-width: 300px;
+                border-width: 8px;
+            }
+
+            .bead {
+                width: 34px;
+                height: 18px;
+                left: -15px;
+            }
+
+            .abacus-beam {
+                top: 55px;
+            }
+
+            .bead.top-deck.active {
+                transform: translateY(30px);
+            }
+
+            .bead.bottom-deck.b1 { top: 85px; }
+            .bead.bottom-deck.b2 { top: 110px; }
+            .bead.bottom-deck.b3 { top: 135px; }
+            .bead.bottom-deck.b4 { top: 160px; }
+
+            .abacus-rods-layer {
+                height: 260px;
+            }
+
+            .tab-btn {
+                font-size: 0.9rem;
+            }
+
+            .parent-grid-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .parent-group {
+                justify-content: center;
+            }
+        }

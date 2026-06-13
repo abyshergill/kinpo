@@ -309,3 +309,84 @@
     }
     .modal-card h2 { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 10px; }
     .modal-card p { font-size: 1.2rem; margin-bottom: 20px; }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        body {
+            padding: 100px 10px 20px 10px;
+        }
+
+        .game-window {
+            padding: 15px;
+        }
+
+        .child-greeting {
+            font-size: 1.2rem;
+        }
+
+        .badge {
+            font-size: 0.9rem;
+            padding: 6px 10px;
+        }
+
+        .habitat-block {
+            height: 150px;
+            font-size: 4.5rem;
+        }
+
+        .big-prompt-text {
+            font-size: 2.5rem;
+        }
+
+        .animal-choice-swatch {
+            width: 70px;
+            height: 70px;
+            font-size: 2.2rem;
+        }
+
+        .input-text-box {
+            width: 160px;
+            font-size: 1.1rem;
+        }
+
+        .btn-general {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .parent-row {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .parent-column {
+            width: 100%;
+            align-items: center;
+        }
+
+        .animal-checklist-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .typing-form-row {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .habitat-block {
+            font-size: 3.5rem;
+            height: 120px;
+        }
+
+        .big-prompt-text {
+            font-size: 2rem;
+        }
+
+        .animal-choice-swatch {
+            width: 60px;
+            height: 60px;
+            font-size: 1.8rem;
+        }
+    }

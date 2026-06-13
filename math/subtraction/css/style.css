@@ -327,3 +327,103 @@
         }
         .modal-card h2 { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 10px; }
         .modal-card p { font-size: 1.2rem; margin-bottom: 20px; }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 100px 10px 20px 10px;
+            }
+
+            .game-window {
+                padding: 15px;
+            }
+
+            .child-greeting {
+                font-size: 1.3rem;
+            }
+
+            .badge {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+
+            .worksheet-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .column-math-stack {
+                grid-column: 1;
+                grid-template-columns: 50px 1fr;
+                justify-items: center;
+            }
+
+            .big-number {
+                font-size: 3.5rem;
+                margin-right: 10px;
+            }
+
+            .math-sign {
+                font-size: 3rem;
+            }
+
+            .sandbox-box {
+                grid-column: 1;
+                grid-row: auto;
+                min-height: 200px;
+                padding: 15px;
+            }
+
+            .sandbox-emoji {
+                font-size: 2.2rem;
+            }
+
+            .sandbox-emoji.crossed::after {
+                font-size: 1.5rem;
+            }
+
+            .answer-row-wrapper {
+                padding-left: 0;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .input-box {
+                width: 80px;
+                height: 55px;
+                font-size: 2rem;
+            }
+
+            .btn-submit {
+                padding: 10px 20px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .parent-settings-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .emoji-selector {
+                order: -1;
+            }
+
+            .big-number {
+                font-size: 2.5rem;
+            }
+
+            .math-sign {
+                font-size: 2.5rem;
+            }
+
+            .sandbox-controls {
+                flex-wrap: wrap;
+            }
+
+            .btn-action {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+        }

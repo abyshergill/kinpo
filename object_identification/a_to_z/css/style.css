@@ -130,3 +130,46 @@
             gap: 5px;
         }
         .btn-speak:hover { background-color: #591a89; }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 100px 10px 20px 10px;
+            }
+
+            .main-container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .showcase-letter {
+                font-size: 3.5rem;
+            }
+
+            .showcase-word {
+                font-size: 1.8rem;
+            }
+
+            .alphabet-grid {
+                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+                gap: 10px;
+            }
+
+            .letter-block {
+                font-size: 1.8rem;
+                padding: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .alphabet-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .letter-block {
+                font-size: 1.5rem;
+            }
+        }

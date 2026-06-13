@@ -46,3 +46,26 @@
     .nav-item:hover .dropdown-content {
         display: block;
     }
+
+    @media (max-width: 768px) {
+        #navbar {
+            display: flex; /* Overridden by topbar.css fixed position */
+        }
+
+        .nav-item {
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .dropdown-content {
+            position: static;
+            display: block; /* Always show dropdown content on mobile */
+            box-shadow: none;
+            padding-left: 20px;
+            min-width: unset;
+        }
+        
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+    }

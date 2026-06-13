@@ -1,6 +1,11 @@
  const main_navbarHTML = `
  <header>
         <a href="#" class="logo">Kinpo Kids Workspace</a>
+        <button class="hamburger" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <nav id="navbar">
             <!-- Math Dropdown -->
             <div class="nav-item">
@@ -53,3 +58,20 @@
 `
 
 document.getElementById('main_navbar-placeholder').innerHTML = main_navbarHTML;
+
+// Add toggle logic
+const hamburger = document.getElementById('hamburger-menu');
+const nav = document.getElementById('navbar');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+    });
+});
